@@ -1,0 +1,2 @@
+textual==8.2.7
+notify_py==0.3.43

@@ -1,0 +1,429 @@
+$tone-brightest: #18e699;
+$tone-bright: #1bbc68;
+$tone-mid: #148526;
+$tone-dark: #10540e;
+$tone-darkest: #14250d;
+
+$color-text: $tone-brightest;
+$color-accent: $tone-bright;
+$color-border: $tone-mid;
+$color-surface: $tone-dark;
+$color-bg: $tone-darkest;
+
+$status-in-progress: #18e699;
+$status-completed: #1bbc68;
+$status-on-hold: #148526;
+$status-due-soon: #f7e018;
+$status-overdue: #e63946;
+
+Screen {
+    background: $color-bg;
+    color: $color-text;
+}
+
+#app_body {
+    height: 1fr;
+}
+
+Footer {
+    dock: bottom;
+    height: 1;
+    background: $color-surface;
+    color: $tone-brightest;
+}
+
+FooterKey {
+    color: $color-text;
+    background: $color-surface;
+    text-style: bold;
+}
+
+FooterLabel {
+    color: $tone-brightest;
+    background: $color-surface;
+}
+
+Input,
+Select {
+    background: $color-bg;
+    color: $color-text;
+    border: tall $color-border;
+    height: 4;
+    min-height: 4;
+    padding: 0 1;
+}
+
+Input:focus,
+Select:focus {
+    border: tall $color-accent;
+}
+
+Button {
+    background: $color-surface;
+    color: $color-text;
+    border: tall $color-border;
+}
+
+Button:hover {
+    border: tall $color-accent;
+    color: $color-accent;
+}
+
+ProjectModal,
+TaskEditModal {
+    align: center middle;
+}
+
+#dialog {
+    width: 40;
+    height: 10;
+    border: tall $color-accent;
+    background: $color-bg;
+    padding: 1 2;
+}
+
+Sidebar {
+    width: 15;
+    dock: left;
+    background: $color-bg;
+    transition: width 100ms in_out_cubic;
+    overflow-x: hidden;
+    border-right: tall $color-border;
+}
+
+Sidebar.-collapsed {
+    width: 0;
+}
+
+#project_list {
+    background: $color-bg;
+    padding: 0;
+    border: none;
+}
+
+#project_list > ListItem {
+    background: $color-bg;
+    color: $color-text;
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+#project_list > ListItem > Label {
+    width: 100%;
+    color: $color-text;
+    padding: 0 2;
+    text-align: left;
+}
+
+.project-row {
+    width: 100%;
+    height: 1;
+    min-height: 1;
+    align: left middle;
+}
+
+.project-item-label {
+    width: 1fr;
+    text-align: left;
+    padding: 0 1;
+}
+
+.delete-project-btn {
+    width: 3;
+    min-width: 3;
+    height: 1;
+    min-height: 1;
+    background: $color-bg;
+    color: $status-overdue;
+    border: none;
+    padding: 0;
+    text-align: center;
+    content-align: center middle;
+}
+
+.delete-project-btn:hover {
+    background: $tone-dark;
+    border: none;
+    color: $status-overdue;
+}
+
+#project_list > ListItem.-hovered {
+    background: $color-surface;
+    border: none;
+}
+
+#project_list > ListItem.-highlight {
+    background: $color-accent;
+    color: $color-bg;
+    border: none;
+}
+
+#project_list > ListItem.-highlight Label {
+    color: $color-bg;
+}
+
+MainArea {
+    background: $color-bg;
+    width: 1fr;
+    height: 100%;
+    layout: grid;
+    grid-size-columns: 2;
+    grid-columns: 48 48;
+    grid-rows: auto;
+    grid-gutter-horizontal: 2;
+    grid-gutter-vertical: 1;
+    padding: 2;
+    overflow-y: auto;
+}
+
+#empty_state {
+    color: $color-border;
+}
+
+InlineTaskForm {
+    height: 22;
+    min-height: 22;
+    width: 48;
+    min-width: 48;
+    border: tall $color-accent;
+    background: $color-bg;
+    padding: 1 1;
+}
+
+.inline-input {
+    margin-bottom: 1;
+}
+
+#date_selectors {
+    height: 6;
+    min-height: 6;
+    width: 100%;
+    margin-bottom: 2;
+    margin-top: 2;
+}
+
+#sel_year {
+    height: 5;
+    min-height: 5;
+    width: 16;
+}
+
+#sel_month,
+#sel_day {
+    height: 5;
+    min-height: 5;
+    width: 14;
+}
+
+#inline_save_btn {
+    width: 100%;
+    height: 4;
+    min-height: 4;
+    text-align: center;
+    content-align: center middle;
+    background: $color-accent;
+    color: $color-bg;
+    border: none;
+}
+
+#inline_save_btn:hover {
+    background: $color-text;
+    color: $color-bg;
+}
+
+AddTaskCard {
+    height: 22;
+    min-height: 22;
+    width: 48;
+    min-width: 48;
+    border: dashed $color-border;
+    content-align: center middle;
+    padding: 1 2;
+    background: $color-bg;
+}
+
+AddTaskCard:hover {
+    border: dashed $color-accent;
+    color: $color-text;
+}
+
+AddTaskCard Label {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    content-align: center middle;
+}
+
+TaskCard {
+    height: 22;
+    min-height: 22;
+    width: 48;
+    min-width: 48;
+    border: tall $color-accent;
+    background: $color-bg;
+    padding: 1 2;
+    margin: 0;
+}
+
+.task-title {
+    text-style: bold;
+    color: $color-text;
+    margin-bottom: 0;
+}
+
+.task-deadline {
+    color: $color-accent;
+    margin-bottom: 1;
+}
+
+.task-status-select {
+    width: 100%;
+    height: 5;
+    min-height: 5;
+    margin-bottom: 1;
+    background: $color-bg;
+    color: $color-text;
+    border: tall $color-border;
+}
+
+.task-status-pill {
+    height: 4;
+    width: 100%;
+    text-align: left;
+    content-align: left middle;
+    padding: 0 1;
+    margin-bottom: 1;
+}
+
+.status-in-progress {
+    background: $status-in-progress;
+    color: $color-bg;
+    border: tall $status-in-progress;
+}
+
+.status-completed {
+    background: $status-completed;
+    color: $color-bg;
+    border: tall $status-completed;
+}
+
+.status-on-hold {
+    background: $status-on-hold;
+    color: $color-bg;
+    border: tall $status-on-hold;
+}
+
+.status-due-soon {
+    background: $status-due-soon;
+    color: $color-bg;
+    border: tall $status-due-soon;
+}
+
+.status-overdue {
+    background: $status-overdue;
+    color: $color-bg;
+    border: tall $status-overdue;
+}
+
+.edit-task-btn {
+    width: 1fr;
+    height: 4;
+    background: $color-surface;
+    color: $color-text;
+    border: tall $color-border;
+    text-align: center;
+    content-align: center middle;
+}
+
+.edit-task-btn:hover {
+    background: $color-accent;
+    color: $color-bg;
+}
+
+.task-actions {
+    width: 100%;
+    height: 4;
+}
+
+.delete-task-btn {
+    width: 1fr;
+    height: 4;
+    background: $tone-mid;
+    color: $color-bg;
+    border: tall $color-border;
+    text-align: center;
+    content-align: center middle;
+}
+
+.delete-task-btn:hover {
+    background: $status-overdue;
+    color: $color-bg;
+}
+
+#task_edit_dialog {
+    width: 60;
+    height: 22;
+    border: tall $color-accent;
+    background: $color-bg;
+    padding: 1 2;
+}
+
+#edit_date_selectors {
+    height: 5;
+    width: 100%;
+    margin: 2 0;
+}
+
+#edit_sel_year {
+    height: 5;
+    min-height: 5;
+    width: 20;
+}
+
+#edit_sel_month,
+#edit_sel_day {
+    height: 5;
+    min-height: 5;
+    width: 16;
+}
+
+.modal-actions {
+    height: 4;
+}
+
+#edit_task_save_btn,
+#edit_task_cancel_btn {
+    width: 1fr;
+}
+
+#edit_task_save_btn {
+    background: $color-accent;
+    color: $color-bg;
+}
+
+#edit_task_cancel_btn {
+    background: $color-surface;
+    color: $color-text;
+}
+
+#toggle_sidebar {
+    width: 3;
+    min-width: 3;
+    height: 1;
+    min-height: 1;
+    border: none;
+    color: $color-text;
+    margin-right: 1;
+    background: $color-bg;
+    padding: 0;
+}
+
+#toggle_sidebar:focus {
+    text-style: bold;
+    background: $color-accent;
+    color: $color-bg;
+}
